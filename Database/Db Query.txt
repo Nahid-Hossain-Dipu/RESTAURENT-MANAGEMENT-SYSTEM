@@ -1,0 +1,78 @@
+CREATE DATABASE RestaurantDB;
+GO
+
+USE RestaurantDB;
+Go
+
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY IDENTITY(1,1),
+    Username VARCHAR(50) NOT NULL,
+    Password VARCHAR(100) NOT NULL,
+    Role VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE MenuItems (
+    ItemID INT PRIMARY KEY IDENTITY(1,1),
+    Name VARCHAR(100),
+    Category VARCHAR(50),
+    Price DECIMAL(10,2),
+    Availability INT
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY IDENTITY(1,1),
+    TableNumber INT,
+    ItemID INT FOREIGN KEY REFERENCES MenuItems(ItemID),
+    Quantity INT,
+    OrderStatus VARCHAR(20),
+    DateTime DATETIME DEFAULT GETDATE()
+);
+
+CREATE TABLE Transactions (
+    TransactionID INT PRIMARY KEY IDENTITY(1,1),
+    OrderID INT FOREIGN KEY REFERENCES Orders(OrderID),
+    TotalAmount DECIMAL(10,2),
+    PaymentMethod VARCHAR(20),
+    DateTime DATETIME DEFAULT GETDATE()
+);
+
+
+
+CREATE TABLE Reservations (
+    ReservationID INT PRIMARY KEY IDENTITY(1,1),
+    CustomerName VARCHAR(100),
+    TableNumber INT,
+    ReservationTime DATETIME,
+    Status VARCHAR(50) DEFAULT 'Booked'
+);
+
+
+
+INSERT INTO MenuItems (Name, Category, Price, Availability) VALUES
+('Chicken Burger', 'Main Course', 150.00, 13),
+('Cheese Pizza', 'Main Course', 250.00, 12),
+('French Fries', 'Snacks', 80.00, 14),
+('Coke', 'Drinks', 50.00, 9),
+('Ice Cream', 'Dessert', 70.00, 5);
+
+
+-- Create the RawMaterials table with the RequestedQuantity column
+CREATE TABLE RawMaterials (
+    RawMaterialID INT PRIMARY KEY IDENTITY(1,1),
+    Name VARCHAR(100) NOT NULL,
+    Category VARCHAR(50),
+    StockLevel INT,
+    SupplierName VARCHAR(100),
+    RequestedQuantity INT -- New column for requested quantity
+);
+
+
+-- Inserting sample data into the RawMaterials table
+INSERT INTO RawMaterials (Name, Category, StockLevel, SupplierName, RequestedQuantity)
+VALUES 
+('Chicken Breast', 'Meat', 50, 'Farm Fresh', 0),
+('Mozzarella Cheese', 'Dairy', 30, 'Cheese Factory', 0),
+('Potatoes', 'Vegetables', 100, 'Veggie World', 0),
+('Tomato Sauce', 'Sauces', 40, 'Sauce Inc.', 0),
+('Olive Oil', 'Oils', 20, 'Olive Grove', 0);
+

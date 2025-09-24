@@ -23,5 +23,19 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.Hide();
             kitchen.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Inventory i = new Inventory();
+            this.Hide();
+            i.Show();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            f.Show();
+            this.Close();
+        }
     }
 }

@@ -44,5 +44,12 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             f.Show();
             this.Hide();
         }
+
+        private void btnOrderStatus_Click(object sender, EventArgs e)
+        {
+            OrderStatus o = new OrderStatus();
+            o.Show();
+            this.Hide();
+        }
     }
 }
