@@ -84,6 +84,7 @@
             // 
             // dgvOrders
             // 
+            this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrders.Location = new System.Drawing.Point(8, 437);
             this.dgvOrders.Name = "dgvOrders";
@@ -205,6 +206,7 @@
             this.Controls.Add(this.txtSelectedItem);
             this.Controls.Add(this.dgvMenuItems);
             this.Name = "StaffDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Staff Dashboard";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenuItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();

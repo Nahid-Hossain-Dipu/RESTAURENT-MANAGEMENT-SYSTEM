@@ -215,6 +215,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dataGridViewMenuItems);
             this.Name = "ManageMenuItems";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Menu Items";
             ((System.ComponentModel.ISupportInitialize)(this.nudAvailability)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenuItems)).EndInit();

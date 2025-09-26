@@ -64,6 +64,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.Controls.Add(this.btnManageUsers);
             this.Controls.Add(this.btnManageMenuItems);
             this.Name = "AdminDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Dashboard";
             this.ResumeLayout(false);
 

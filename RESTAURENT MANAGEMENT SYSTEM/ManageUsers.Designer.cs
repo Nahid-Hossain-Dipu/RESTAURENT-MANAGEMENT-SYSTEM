@@ -189,6 +189,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dataGridViewUsers);
             this.Name = "ManageUsers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Users";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
