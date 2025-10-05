@@ -13,13 +13,14 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
         private Label lblPrice;
         private TextBox txtPrice;
         private Label lblAvailability;
-        private NumericUpDown nudAvailability;
+        private TextBox txtAvailability; // Changed from nudAvailability to txtAvailability
         private ComboBox cmbFilterCategory;
         private Button btnAddItem;
         private Button btnUpdateItem;
         private Button btnDeleteItem;
         private Button btnClear;
         private DataGridView dataGridViewMenuItems;
+        private Button btnBack;
 
         protected override void Dispose(bool disposing)
         {
@@ -37,7 +38,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.lblPrice = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.lblAvailability = new System.Windows.Forms.Label();
-            this.nudAvailability = new System.Windows.Forms.NumericUpDown();
+            this.txtAvailability = new System.Windows.Forms.TextBox(); // Updated control here
             this.cmbFilterCategory = new System.Windows.Forms.ComboBox();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnUpdateItem = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.btnClear = new System.Windows.Forms.Button();
             this.dataGridViewMenuItems = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAvailability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenuItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,17 +108,12 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.lblAvailability.TabIndex = 6;
             this.lblAvailability.Text = "Availability:";
             // 
-            // nudAvailability
+            // txtAvailability
             // 
-            this.nudAvailability.Location = new System.Drawing.Point(100, 140);
-            this.nudAvailability.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nudAvailability.Name = "nudAvailability";
-            this.nudAvailability.Size = new System.Drawing.Size(180, 20);
-            this.nudAvailability.TabIndex = 7;
+            this.txtAvailability.Location = new System.Drawing.Point(100, 140);
+            this.txtAvailability.Name = "txtAvailability";
+            this.txtAvailability.Size = new System.Drawing.Size(180, 20);
+            this.txtAvailability.TabIndex = 7;
             // 
             // cmbFilterCategory
             // 
@@ -207,7 +202,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.lblAvailability);
-            this.Controls.Add(this.nudAvailability);
+            this.Controls.Add(this.txtAvailability); // Added textbox instead of nudAvailability
             this.Controls.Add(this.cmbFilterCategory);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnUpdateItem);
@@ -217,13 +212,10 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             this.Name = "ManageMenuItems";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage Menu Items";
-            ((System.ComponentModel.ISupportInitialize)(this.nudAvailability)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenuItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        private Button btnBack;
     }
 }

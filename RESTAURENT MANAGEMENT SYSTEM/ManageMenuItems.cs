@@ -57,7 +57,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             txtName.Text = "";
             cmbCategory.SelectedIndex = -1;
             txtPrice.Text = "";
-            nudAvailability.Value = 0;
+            txtAvailability.Text = "";
             selectedItemId = -1;
             btnAddItem.Enabled = true;
         }
@@ -82,9 +82,9 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
                 return false;
             }
 
-            if (nudAvailability.Value < 0)
+            if (!int.TryParse(txtAvailability.Text.Trim(), out int availability) || availability < 0)
             {
-                MessageBox.Show("Availability cannot be negative.");
+                MessageBox.Show("Please enter a valid positive integer for availability.");
                 return false;
             }
 
@@ -98,7 +98,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             string name = txtName.Text.Trim();
             string category = cmbCategory.SelectedItem.ToString();
             decimal price = decimal.Parse(txtPrice.Text.Trim());
-            int availability = (int)nudAvailability.Value;
+            int availability = int.Parse(txtAvailability.Text.Trim());
 
             try
             {
@@ -136,7 +136,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
                 txtName.Text = row.Cells["Name"].Value.ToString();
                 cmbCategory.SelectedItem = row.Cells["Category"].Value.ToString();
                 txtPrice.Text = row.Cells["Price"].Value.ToString();
-                nudAvailability.Value = Convert.ToInt32(row.Cells["Availability"].Value);
+                txtAvailability.Text = row.Cells["Availability"].Value.ToString();
 
                 btnAddItem.Enabled = false;
             }
@@ -155,7 +155,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             string name = txtName.Text.Trim();
             string category = cmbCategory.SelectedItem.ToString();
             decimal price = decimal.Parse(txtPrice.Text.Trim());
-            int availability = (int)nudAvailability.Value;
+            int availability = int.Parse(txtAvailability.Text.Trim());
 
             try
             {
