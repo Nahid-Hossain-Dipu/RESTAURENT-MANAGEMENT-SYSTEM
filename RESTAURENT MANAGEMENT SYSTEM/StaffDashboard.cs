@@ -11,19 +11,14 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
         DataAccess da = new DataAccess();
         private int selectedItemId = -1;
         private int currentTableNumber = -1;
-
         private DataTable currentCustomerOrders = new DataTable();
-
         private PrintDocument printDocument = new PrintDocument();
         private string receiptText = "";
 
         public StaffDashboard()
         {
             InitializeComponent();
-
             InitializeCurrentCustomerOrders();
-
-            // Configure DataGridViews
             dgvMenuItems.ReadOnly = true;
             dgvOrders.ReadOnly = true;
             dgvMenuItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -32,13 +27,10 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             dgvOrders.MultiSelect = false;
             dgvMenuItems.AllowUserToAddRows = false;
             dgvOrders.AllowUserToAddRows = false;
-
             LoadMenuItems();
-
             printDocument.PrintPage += PrintDocument_PrintPage;
         }
 
-        // ==================== MENU ITEMS ====================
         private void LoadMenuItems()
         {
             string query = "SELECT ItemID, Name, Category, Price, Availability FROM MenuItems";
@@ -61,10 +53,6 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             }
         }
 
-        private void dgvMenuItems_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-        private void textBox1_TextChanged(object sender, EventArgs e) { }
-
-        // ==================== MEMORY TABLE ====================
         private void InitializeCurrentCustomerOrders()
         {
             currentCustomerOrders.Columns.Add("OrderID", typeof(int));
@@ -91,9 +79,6 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             dgvOrders.Columns["ItemID"].Visible = true;
         }
 
-
-
-        // ==================== ADD ORDER ====================
         private void btnAddOrder_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtTableNumber.Text, out int tableNumber))
@@ -129,14 +114,10 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
 
             string itemName = dt.Rows[0]["Name"].ToString();
             double unitPrice = Convert.ToDouble(dt.Rows[0]["Price"]);
-
-            // TEMPORARY OrderID for visual
             int tempOrderId = currentCustomerOrders.Rows.Count + 1;
 
-            // Add to memory table
             currentCustomerOrders.Rows.Add(tempOrderId, currentTableNumber, selectedItemId, itemName, orderQty, unitPrice,
                                           orderQty * unitPrice, "Pending", DateTime.Now);
-
             UpdateTotalLabel();
         }
 
@@ -149,7 +130,6 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             lblTotalAmount.Text = "Total: " + total + " TK ";
         }
 
-        // ==================== DELETE ORDER ====================
         private void btnDeleteOrder_Click(object sender, EventArgs e)
         {
             if (dgvOrders.SelectedRows.Count == 0)
@@ -165,7 +145,6 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             UpdateTotalLabel();
         }
 
-        // ==================== CLEAR BUTTON ====================
         private void btnClear_Click(object sender, EventArgs e)
         {
             txtTableNumber.Clear();
@@ -173,12 +152,35 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             txtQuantity.Clear();
             selectedItemId = -1;
             currentTableNumber = -1;
-
             currentCustomerOrders.Rows.Clear();
             UpdateTotalLabel();
         }
 
-        // ==================== CONFIRM ORDER / PRINT ====================
+        private string GenerateOrderID()
+        {
+            string sql = "SELECT * FROM Orders ORDER BY OrderID DESC";
+            DataTable dt = da.ExecuteQueryTable(sql);
+
+            if (dt.Rows.Count > 0)
+            {
+                string lastId = dt.Rows[0]["OrderID"].ToString(); // e.g. abc-005-def
+                string[] parts = lastId.Split('-');
+
+                int number = Convert.ToInt32(parts[1]);
+                number++;
+
+                return "abc-" + number.ToString("D3") + "-def";
+            }
+            else
+            {
+                return "abc-001-def";
+            }
+        }
+
+
+
+
+
         private void btnConfirmOrder_Click(object sender, EventArgs e)
         {
             if (currentCustomerOrders.Rows.Count == 0)
@@ -192,6 +194,14 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             receiptText += "Table No: " + currentTableNumber + "\n";
             receiptText += "---------------------\n";
 
+            string newOrderId = GenerateOrderID();
+
+            // 1. Insert into Orders (parent table)
+            string insertOrder = "INSERT INTO Orders (OrderID, TableNo, Status) " +
+                                 "VALUES ('" + newOrderId + "', " + currentTableNumber + ", 'Confirmed')";
+            da.ExecuteUpdateQuery(insertOrder);
+
+            // 2. Loop through each item and insert into OrderItems (child table)
             foreach (DataRow row in currentCustomerOrders.Rows)
             {
                 string itemName = row["ItemName"].ToString();
@@ -200,25 +210,25 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
                 double unitPrice = Convert.ToDouble(row["Price"]);
                 double totalPrice = qty * unitPrice;
 
-                receiptText += $"{itemName} x {qty} = {totalPrice}\n";
+                receiptText += itemName + " x " + qty + " = " + totalPrice + "\n";
                 totalAmount += totalPrice;
 
-                // INSERT into DB
-                string insertQuery = "INSERT INTO Orders (TableNumber, ItemID, Quantity, OrderStatus) " +
-                                     "VALUES (" + currentTableNumber + ", " + itemId + ", " + qty + ", 'Confirmed')";
-                da.ExecuteUpdateQuery(insertQuery);
+                // Insert into OrderItems
+                string insertItem = "INSERT INTO OrderItems (OrderID, ItemID, Qty, Price) " +
+                                    "VALUES ('" + newOrderId + "', " + itemId + ", " + qty + ", " + unitPrice + ")";
+                da.ExecuteUpdateQuery(insertItem);
 
-                // UPDATE stock
+                // Update stock in MenuItems
                 string updateStock = "UPDATE MenuItems SET Availability = Availability - " + qty +
                                      " WHERE ItemID = " + itemId;
                 da.ExecuteUpdateQuery(updateStock);
             }
 
             receiptText += "---------------------\n";
-            receiptText += "Total: " + totalAmount + " TK " + "\n";
+            receiptText += "Total: " + totalAmount + " TK\n";
             receiptText += "---------------------\nThank you!";
 
-            // Print preview
+            // Show print preview
             PrintPreviewDialog preview = new PrintPreviewDialog();
             preview.Document = printDocument;
             preview.ShowDialog();
@@ -236,7 +246,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            float scale = 1.5f; // 150% size
+            float scale = 1.5f;
             e.Graphics.ScaleTransform(scale, scale);
             e.Graphics.DrawString(receiptText, new Font("Courier New", 12), Brushes.Black, 50, 50);
         }
@@ -261,17 +271,13 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             int oldQty = Convert.ToInt32(row["Quantity"]);
             int itemId = Convert.ToInt32(row["ItemID"]);
 
-            // Check stock in DB
             string checkStockQuery = "SELECT Availability, Name, Price FROM MenuItems WHERE ItemID = " + itemId;
             DataTable dt = da.ExecuteQueryTable(checkStockQuery);
 
             if (dt.Rows.Count == 0) return;
 
             int availableQty = Convert.ToInt32(dt.Rows[0]["Availability"]);
-            string itemName = dt.Rows[0]["Name"].ToString();
             double unitPrice = Convert.ToDouble(dt.Rows[0]["Price"]);
-
-            // Calculate difference (positive if we need more stock, negative if reducing qty)
             int qtyDifference = newQty - oldQty;
 
             if (qtyDifference > availableQty)
@@ -280,7 +286,6 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
                 return;
             }
 
-            // Update the row in memory table
             row["Quantity"] = newQty;
             row["TotalPrice"] = newQty * unitPrice;
 

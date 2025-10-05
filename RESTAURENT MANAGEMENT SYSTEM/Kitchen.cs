@@ -22,34 +22,40 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             LoadKitchenOrders();
         }
 
+        // Load orders with status 'Confirmed', 'Cooking', or 'Ready'
         private void LoadKitchenOrders()
         {
             try
             {
-                string sql = "SELECT o.OrderID, " +
-                             "o.TableNumber, " +
-                             "o.ItemID, " +
-                             "m.Name AS ItemName, " +
-                             "o.Quantity, " +
-                             "o.OrderStatus, " +
-                             "o.DateTime " +
-                             "FROM Orders o " +
-                             "JOIN MenuItems m ON o.ItemID = m.ItemID " +
-                             "WHERE o.OrderStatus IN ('Confirmed', 'Cooking', 'Ready') " +
-                             "ORDER BY o.DateTime DESC";
+                string sql = @"
+                    SELECT 
+                        oi.OrderItemID, 
+                        o.OrderID, 
+                        o.TableNo AS TableNumber, 
+                        m.Name AS ItemName, 
+                        oi.Qty AS Quantity, 
+                        oi.Price AS ItemPrice, 
+                        o.Status AS OrderStatus,  -- Fetching Status from Orders table
+                        o.OrderDate AS OrderTime
+                    FROM OrderItems oi
+                    INNER JOIN Orders o ON oi.OrderID = o.OrderID  -- Joining with Orders table
+                    INNER JOIN MenuItems m ON oi.ItemID = m.ItemID
+                    WHERE o.Status IN ('Confirmed', 'Cooking', 'Ready')  -- Filtering based on Orders' Status
+                    ORDER BY o.OrderDate ASC";
 
                 DataTable dt = da.ExecuteQueryTable(sql);
                 dgvKitchenOrders.DataSource = dt;
 
                 if (dt.Rows.Count > 0)
                 {
+                    dgvKitchenOrders.Columns["OrderItemID"].Visible = false;
                     dgvKitchenOrders.Columns["OrderID"].HeaderText = "Order ID";
                     dgvKitchenOrders.Columns["TableNumber"].HeaderText = "Table No";
-                    dgvKitchenOrders.Columns["ItemID"].HeaderText = "Food ID";
                     dgvKitchenOrders.Columns["ItemName"].HeaderText = "Food Name";
                     dgvKitchenOrders.Columns["Quantity"].HeaderText = "Qty";
+                    dgvKitchenOrders.Columns["ItemPrice"].HeaderText = "Price";
                     dgvKitchenOrders.Columns["OrderStatus"].HeaderText = "Status";
-                    dgvKitchenOrders.Columns["DateTime"].HeaderText = "Order Time";
+                    dgvKitchenOrders.Columns["OrderTime"].HeaderText = "Order Time";
                 }
             }
             catch (Exception ex)
@@ -58,29 +64,33 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             }
         }
 
+        // Start Cooking button click handler
         private void Start_Cooking_Click(object sender, EventArgs e)
         {
             if (dgvKitchenOrders.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select an order first.");
+                MessageBox.Show("Please select an order item first.");
                 return;
             }
 
             try
             {
-                int orderId = Convert.ToInt32(dgvKitchenOrders.SelectedRows[0].Cells["OrderID"].Value);
-                string sql = "UPDATE Orders SET OrderStatus = 'Cooking' WHERE OrderID = " + orderId;
+                // Get the OrderID as a string (not int)
+                string orderId = dgvKitchenOrders.SelectedRows[0].Cells["OrderID"].Value.ToString();
+
+                // Wrap orderId in single quotes in SQL because it's a string
+                string sql = "UPDATE Orders SET Status = 'Cooking' WHERE OrderID = '" + orderId + "'";
 
                 int result = da.ExecuteUpdateQuery(sql);
 
                 if (result > 0)
                 {
                     MessageBox.Show("Order marked as Cooking.");
-                    LoadKitchenOrders();
+                    LoadKitchenOrders();  // Reload orders to show updated status
                 }
                 else
                 {
-                    MessageBox.Show("Update failed.");
+                    MessageBox.Show("Failed to update order status.");
                 }
             }
             catch (Exception ex)
@@ -89,29 +99,33 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             }
         }
 
+        // Mark Ready button click handler
         private void Mark_Ready_Click(object sender, EventArgs e)
         {
             if (dgvKitchenOrders.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select an order first.");
+                MessageBox.Show("Please select an order item first.");
                 return;
             }
 
             try
             {
-                int orderId = Convert.ToInt32(dgvKitchenOrders.SelectedRows[0].Cells["OrderID"].Value);
-                string sql = "UPDATE Orders SET OrderStatus = 'Ready' WHERE OrderID = " + orderId;
+                // Get the OrderID as a string (not int)
+                string orderId = dgvKitchenOrders.SelectedRows[0].Cells["OrderID"].Value.ToString();
+
+                // Wrap orderId in single quotes in SQL because it's a string
+                string sql = "UPDATE Orders SET Status = 'Ready' WHERE OrderID = '" + orderId + "'";
 
                 int result = da.ExecuteUpdateQuery(sql);
 
                 if (result > 0)
                 {
-                    MessageBox.Show("Order marked as Ready!");
-                    LoadKitchenOrders();
+                    MessageBox.Show("Order marked as Ready.");
+                    LoadKitchenOrders();  // Reload orders to show updated status
                 }
                 else
                 {
-                    MessageBox.Show("Update failed.");
+                    MessageBox.Show("Failed to update order status.");
                 }
             }
             catch (Exception ex)
@@ -120,11 +134,13 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             }
         }
 
+        // Refresh button click handler
         private void Refresh_Click(object sender, EventArgs e)
         {
             LoadKitchenOrders();
         }
 
+        // Back button click handler
         private void Back_Click(object sender, EventArgs e)
         {
             ChefDashboard dashboard = new ChefDashboard();

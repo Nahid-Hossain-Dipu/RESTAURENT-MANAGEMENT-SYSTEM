@@ -46,7 +46,7 @@
             this.dgvMenuItems.Size = new System.Drawing.Size(520, 404);
             this.dgvMenuItems.TabIndex = 0;
             this.dgvMenuItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenuItems_CellClick);
-            this.dgvMenuItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenuItems_CellContentClick);
+           
             // 
             // txtSelectedItem
             // 
@@ -55,7 +55,7 @@
             this.txtSelectedItem.ReadOnly = true;
             this.txtSelectedItem.Size = new System.Drawing.Size(100, 20);
             this.txtSelectedItem.TabIndex = 1;
-            this.txtSelectedItem.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // txtTableNumber
             // 
