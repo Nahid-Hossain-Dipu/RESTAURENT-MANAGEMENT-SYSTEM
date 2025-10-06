@@ -64,6 +64,12 @@
     <Compile Include="ChefDashboard.Designer.cs">
       <DependentUpon>ChefDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CookingHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CookingHistory.Designer.cs">
+      <DependentUpon>CookingHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess.cs" />
     <Compile Include="Feedback.cs">
       <SubType>Form</SubType>

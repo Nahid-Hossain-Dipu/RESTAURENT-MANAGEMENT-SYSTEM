@@ -37,5 +37,13 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             f.Show();
             this.Close();
         }
+
+
+        private void btnCoockingHistory_Click(object sender, EventArgs e)
+        {
+            CookingHistory c2 = new CookingHistory();
+            this.Hide();
+            c2.Show();
+        }
     }
 }
