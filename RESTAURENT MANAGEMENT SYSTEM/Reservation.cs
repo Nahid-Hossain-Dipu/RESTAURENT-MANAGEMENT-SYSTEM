@@ -180,5 +180,10 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             s.Show();
             this.Hide();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
