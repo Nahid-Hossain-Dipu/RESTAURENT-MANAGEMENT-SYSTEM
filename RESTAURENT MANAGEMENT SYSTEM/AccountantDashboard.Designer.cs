@@ -41,9 +41,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(236, 23);
+            this.label1.Location = new System.Drawing.Point(177, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(318, 38);
+            this.label1.Size = new System.Drawing.Size(251, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "Accountant Dashboard";
             // 
@@ -53,9 +54,10 @@
             this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSales.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSales.ForeColor = System.Drawing.Color.Black;
-            this.btnSales.Location = new System.Drawing.Point(554, 117);
+            this.btnSales.Location = new System.Drawing.Point(416, 95);
+            this.btnSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSales.Name = "btnSales";
-            this.btnSales.Size = new System.Drawing.Size(181, 53);
+            this.btnSales.Size = new System.Drawing.Size(136, 43);
             this.btnSales.TabIndex = 1;
             this.btnSales.Text = "Sales Reports";
             this.btnSales.UseVisualStyleBackColor = false;
@@ -66,9 +68,10 @@
             this.btnExpense.BackColor = System.Drawing.Color.White;
             this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExpense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExpense.Location = new System.Drawing.Point(554, 189);
+            this.btnExpense.Location = new System.Drawing.Point(416, 154);
+            this.btnExpense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExpense.Name = "btnExpense";
-            this.btnExpense.Size = new System.Drawing.Size(181, 48);
+            this.btnExpense.Size = new System.Drawing.Size(136, 39);
             this.btnExpense.TabIndex = 2;
             this.btnExpense.Text = "Expense ";
             this.btnExpense.UseVisualStyleBackColor = false;
@@ -78,9 +81,10 @@
             this.btnProfit.BackColor = System.Drawing.Color.White;
             this.btnProfit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfit.Location = new System.Drawing.Point(554, 339);
+            this.btnProfit.Location = new System.Drawing.Point(416, 275);
+            this.btnProfit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProfit.Name = "btnProfit";
-            this.btnProfit.Size = new System.Drawing.Size(181, 48);
+            this.btnProfit.Size = new System.Drawing.Size(136, 39);
             this.btnProfit.TabIndex = 3;
             this.btnProfit.Text = "Profit Summary ";
             this.btnProfit.UseVisualStyleBackColor = false;
@@ -90,9 +94,10 @@
             this.btnSlManagement.BackColor = System.Drawing.Color.White;
             this.btnSlManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSlManagement.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSlManagement.Location = new System.Drawing.Point(554, 262);
+            this.btnSlManagement.Location = new System.Drawing.Point(416, 213);
+            this.btnSlManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSlManagement.Name = "btnSlManagement";
-            this.btnSlManagement.Size = new System.Drawing.Size(181, 48);
+            this.btnSlManagement.Size = new System.Drawing.Size(136, 39);
             this.btnSlManagement.TabIndex = 4;
             this.btnSlManagement.Text = "Salary Management";
             this.btnSlManagement.UseVisualStyleBackColor = false;
@@ -103,10 +108,9 @@
             this.btnLogout.BackColor = System.Drawing.Color.Red;
             this.btnLogout.Font = new System.Drawing.Font("Cambria", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(554, 409);
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Location = new System.Drawing.Point(416, 332);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(181, 50);
+            this.btnLogout.Size = new System.Drawing.Size(136, 41);
             this.btnLogout.TabIndex = 20;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
@@ -114,17 +118,19 @@
             // 
             // AccountantDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(842, 513);
+            this.ClientSize = new System.Drawing.Size(632, 417);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnSlManagement);
             this.Controls.Add(this.btnProfit);
             this.Controls.Add(this.btnExpense);
             this.Controls.Add(this.btnSales);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AccountantDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccountantDashboard";
             this.ResumeLayout(false);
             this.PerformLayout();
