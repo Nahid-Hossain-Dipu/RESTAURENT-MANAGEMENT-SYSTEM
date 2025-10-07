@@ -1,7 +1,5 @@
--- Drop existing tables if necessary
-DROP TABLE IF EXISTS Transactions, Orders, MenuItems, Users, Reservations, RawMaterials;
 
--- Users table remains unchanged
+
 CREATE TABLE Users (
     UserID INT PRIMARY KEY IDENTITY(1,1),
     Username VARCHAR(50) NOT NULL,
@@ -10,8 +8,9 @@ CREATE TABLE Users (
 );
 
 -- ✅ MenuItems with custom ItemID
+
 CREATE TABLE MenuItems (
-    ItemID VARCHAR(20) PRIMARY KEY,  -- was INT
+    ItemID INT PRIMARY KEY IDENTITY(1,1),
     Name VARCHAR(100),
     Category VARCHAR(50),
     Price DECIMAL(10,2),
@@ -19,19 +18,30 @@ CREATE TABLE MenuItems (
 );
 
 -- ✅ Orders with custom OrderID
+
+-- Parent table: One row per order
 CREATE TABLE Orders (
-    OrderID VARCHAR(20) PRIMARY KEY,  -- was INT
-    TableNumber INT,
-    ItemID VARCHAR(20) FOREIGN KEY REFERENCES MenuItems(ItemID),
-    Quantity INT,
-    OrderStatus VARCHAR(20),
-    DateTime DATETIME DEFAULT GETDATE()
+    OrderID VARCHAR(50) PRIMARY KEY,
+    TableNo INT,
+    OrderDate DATETIME DEFAULT GETDATE(),
+    Status VARCHAR(20)
 );
+
+-- Child table: One row per item in the order
+CREATE TABLE OrderItems (
+    OrderItemID INT PRIMARY KEY IDENTITY(1,1),
+    OrderID VARCHAR(50),
+    ItemID INT FOREIGN KEY REFERENCES MenuItems(ItemID),
+    Qty INT,
+    Price FLOAT,
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
+
 
 -- Transactions table
 CREATE TABLE Transactions (
     TransactionID INT PRIMARY KEY IDENTITY(1,1),
-    OrderID VARCHAR(20) FOREIGN KEY REFERENCES Orders(OrderID),
+    OrderID VARCHAR(50) FOREIGN KEY REFERENCES Orders(OrderID),
     TotalAmount DECIMAL(10,2),
     PaymentMethod VARCHAR(20),
     DateTime DATETIME DEFAULT GETDATE()
@@ -63,3 +73,16 @@ INSERT INTO MenuItems (ItemID, Name, Category, Price, Availability) VALUES
 ('itm-003', 'French Fries', 'Snacks', 80.00, 14),
 ('itm-004', 'Coke', 'Drinks', 50.00, 9),
 ('itm-005', 'Ice Cream', 'Dessert', 70.00, 5);
+
+
+CREATE TABLE Salary (
+    SalaryID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT FOREIGN KEY REFERENCES Users(UserID),
+    BaseSalary DECIMAL(10,2),
+    Bonus DECIMAL(10,2) DEFAULT 0,
+    Deduction DECIMAL(10,2) DEFAULT 0,
+    NetSalary AS (BaseSalary + Bonus - Deduction) PERSISTED,
+    SalaryMonth DATE,
+    PaymentDate DATETIME DEFAULT GETDATE()
+);
+
