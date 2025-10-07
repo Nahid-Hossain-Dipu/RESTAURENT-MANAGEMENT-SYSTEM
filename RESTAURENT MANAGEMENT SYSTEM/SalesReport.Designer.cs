@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvSales = new System.Windows.Forms.DataGridView();
             this.btnFilter = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnToday = new System.Windows.Forms.Button();
             this.btnYesterday = new System.Windows.Forms.Button();
             this.btnThisWeek = new System.Windows.Forms.Button();
             this.btnAll = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.lblTotalOrders = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,21 +56,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Sales Repotrs";
             // 
-            // dateTimePicker1
+            // dtpFrom
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(185, 75);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(150, 22);
-            this.dateTimePicker1.TabIndex = 1;
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(185, 75);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(150, 22);
+            this.dtpFrom.TabIndex = 1;
             // 
-            // dateTimePicker2
+            // dtpTo
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(185, 115);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(150, 22);
-            this.dateTimePicker2.TabIndex = 2;
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(185, 115);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(150, 22);
+            this.dtpTo.TabIndex = 2;
             // 
             // label2
             // 
@@ -92,15 +94,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "To:";
             // 
-            // dataGridView1
+            // dgvSales
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(76, 291);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(725, 219);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSales.Location = new System.Drawing.Point(109, 272);
+            this.dgvSales.Name = "dgvSales";
+            this.dgvSales.RowHeadersWidth = 51;
+            this.dgvSales.RowTemplate.Height = 24;
+            this.dgvSales.Size = new System.Drawing.Size(606, 225);
+            this.dgvSales.TabIndex = 5;
             // 
             // btnFilter
             // 
@@ -113,61 +115,67 @@
             this.btnFilter.TabIndex = 6;
             this.btnFilter.Text = "Filter";
             this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
-            // button1
+            // btnToday
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(585, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 37);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Today";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnToday.BackColor = System.Drawing.Color.White;
+            this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToday.Location = new System.Drawing.Point(564, 75);
+            this.btnToday.Name = "btnToday";
+            this.btnToday.Size = new System.Drawing.Size(141, 37);
+            this.btnToday.TabIndex = 7;
+            this.btnToday.Text = "Today";
+            this.btnToday.UseVisualStyleBackColor = false;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnYesterday
             // 
             this.btnYesterday.BackColor = System.Drawing.Color.White;
             this.btnYesterday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYesterday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYesterday.Location = new System.Drawing.Point(585, 127);
+            this.btnYesterday.Location = new System.Drawing.Point(564, 118);
             this.btnYesterday.Name = "btnYesterday";
             this.btnYesterday.Size = new System.Drawing.Size(141, 37);
             this.btnYesterday.TabIndex = 8;
             this.btnYesterday.Text = "Yesterday";
             this.btnYesterday.UseVisualStyleBackColor = false;
+            this.btnYesterday.Click += new System.EventHandler(this.btnYesterday_Click);
             // 
             // btnThisWeek
             // 
             this.btnThisWeek.BackColor = System.Drawing.Color.White;
             this.btnThisWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThisWeek.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThisWeek.Location = new System.Drawing.Point(585, 181);
+            this.btnThisWeek.Location = new System.Drawing.Point(564, 161);
             this.btnThisWeek.Name = "btnThisWeek";
             this.btnThisWeek.Size = new System.Drawing.Size(141, 37);
             this.btnThisWeek.TabIndex = 9;
             this.btnThisWeek.Text = "ThisWeek";
             this.btnThisWeek.UseVisualStyleBackColor = false;
+            this.btnThisWeek.Click += new System.EventHandler(this.btnThisWeek_Click);
             // 
             // btnAll
             // 
             this.btnAll.BackColor = System.Drawing.Color.White;
             this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAll.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAll.Location = new System.Drawing.Point(585, 234);
+            this.btnAll.Location = new System.Drawing.Point(564, 216);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(141, 37);
             this.btnAll.TabIndex = 10;
             this.btnAll.Text = "All";
             this.btnAll.UseVisualStyleBackColor = false;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.BackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(760, 12);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(698, 602);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(98, 37);
             this.btnBack.TabIndex = 11;
@@ -175,27 +183,55 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // lblTotalOrders
+            // 
+            this.lblTotalOrders.AutoSize = true;
+            this.lblTotalOrders.BackColor = System.Drawing.Color.Red;
+            this.lblTotalOrders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalOrders.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalOrders.ForeColor = System.Drawing.Color.White;
+            this.lblTotalOrders.Location = new System.Drawing.Point(153, 550);
+            this.lblTotalOrders.Name = "lblTotalOrders";
+            this.lblTotalOrders.Size = new System.Drawing.Size(133, 31);
+            this.lblTotalOrders.TabIndex = 12;
+            this.lblTotalOrders.Text = "Total Sales:";
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.BackColor = System.Drawing.Color.Red;
+            this.lblTotalAmount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.ForeColor = System.Drawing.Color.White;
+            this.lblTotalAmount.Location = new System.Drawing.Point(548, 550);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(167, 31);
+            this.lblTotalAmount.TabIndex = 13;
+            this.lblTotalAmount.Text = "Total Amount:";
+            // 
             // SalesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
-            this.ClientSize = new System.Drawing.Size(870, 522);
+            this.ClientSize = new System.Drawing.Size(818, 651);
+            this.Controls.Add(this.lblTotalAmount);
+            this.Controls.Add(this.lblTotalOrders);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAll);
             this.Controls.Add(this.btnThisWeek);
             this.Controls.Add(this.btnYesterday);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnToday);
             this.Controls.Add(this.btnFilter);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvSales);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtpTo);
+            this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.label1);
             this.Name = "SalesReport";
             this.Text = "SalesReport";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,16 +240,18 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
+        private System.Windows.Forms.DateTimePicker dtpTo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvSales;
         private System.Windows.Forms.Button btnFilter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Button btnYesterday;
         private System.Windows.Forms.Button btnThisWeek;
         private System.Windows.Forms.Button btnAll;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label lblTotalOrders;
+        private System.Windows.Forms.Label lblTotalAmount;
     }
 }

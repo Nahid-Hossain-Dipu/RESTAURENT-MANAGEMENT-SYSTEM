@@ -99,5 +99,10 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
                 MessageBox.Show("Error updating order: " + ex.Message);
             }
         }
+
+        private void lblorderStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
