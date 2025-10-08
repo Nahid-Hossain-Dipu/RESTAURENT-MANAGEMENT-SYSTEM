@@ -58,6 +58,12 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminFinancialForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminFinancialForm.Designer.cs">
+      <DependentUpon>AdminFinancialForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChefDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
       <DependentUpon>CookingHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess.cs" />
+    <Compile Include="ExpensesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpensesForm.Designer.cs">
+      <DependentUpon>ExpensesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Feedback.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,8 +131,20 @@
     <Compile Include="OrderStatus.Designer.cs">
       <DependentUpon>OrderStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProfitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfitForm.Designer.cs">
+      <DependentUpon>ProfitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseEntryForm.Designer.cs">
+      <DependentUpon>PurchaseEntryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reservation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +181,9 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminFinancialForm.resx">
+      <DependentUpon>AdminFinancialForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChefDashboard.resx">
       <DependentUpon>ChefDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +211,9 @@
     <EmbeddedResource Include="OrderStatus.resx">
       <DependentUpon>OrderStatus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProfitForm.resx">
+      <DependentUpon>ProfitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -194,6 +224,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="PurchaseEntryForm.resx">
+      <DependentUpon>PurchaseEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reservation.resx">
       <DependentUpon>Reservation.cs</DependentUpon>
     </EmbeddedResource>

@@ -86,3 +86,12 @@ CREATE TABLE Salary (
     PaymentDate DATETIME DEFAULT GETDATE()
 );
 
+
+CREATE TABLE RawMaterialPurchases (
+    PurchaseID INT PRIMARY KEY IDENTITY(1,1),
+    RawMaterialID INT FOREIGN KEY REFERENCES RawMaterials(RawMaterialID),
+    QuantityPurchased DECIMAL(10,2),
+    UnitPrice DECIMAL(10,2),
+    PurchaseDate DATE DEFAULT GETDATE()
+);
+
