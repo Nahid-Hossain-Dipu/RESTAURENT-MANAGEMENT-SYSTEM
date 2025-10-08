@@ -21,14 +21,14 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
         {
             SalesReport s1 = new SalesReport();
             s1.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnSlManagement_Click(object sender, EventArgs e)
         {
             SalaryManagement sl = new SalaryManagement();
             sl.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -36,6 +36,20 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             Form1 f2 = new Form1();
             f2.Show();
             this.Close();
+        }
+
+        private void btnProfit_Click(object sender, EventArgs e)
+        {
+            ProfitForm p = new ProfitForm();
+            p.Show();
+            this.Hide();
+        }
+
+        private void btnExpense_Click(object sender, EventArgs e)
+        {
+            ExpensesForm ex = new ExpensesForm();
+            ex.Show();
+            this.Hide();
         }
     }
 }

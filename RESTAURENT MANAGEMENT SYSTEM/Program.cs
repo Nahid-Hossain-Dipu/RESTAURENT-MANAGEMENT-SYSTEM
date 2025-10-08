@@ -17,8 +17,10 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            //Application.Run(new SalesRegigit port());
-            // Application.Run(new ReservationForm());
+            //Application.Run(new ProfitForm());
+            //Application.Run(new PurchaseEntryForm());
+            //Application.Run(new AdminFinancialForm());
+
         }
     }
 }
