@@ -35,5 +35,19 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             f.Show();
             this.Close();
         }
+
+        private void btnManageRawMaterials_Click(object sender, EventArgs e)
+        {
+            PurchaseEntryForm p = new PurchaseEntryForm();
+            p.Show();
+            this.Hide();
+        }
+
+        private void btnFinanceStatus_Click(object sender, EventArgs e)
+        {
+            AdminFinancialForm af = new AdminFinancialForm();
+            af.Show();
+            this.Hide();
+        }
     }
 }

@@ -18,11 +18,14 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 <<<<<<< HEAD
+<<<<<<< HEAD
            // Application.Run(new SalesReport());
 =======
             //Application.Run(new SalesReport());
 >>>>>>> 731f8650893d16d40ce68e5777e81258b6dbc946
             // Application.Run(new ReservationForm());
+=======
+>>>>>>> 9a99a61f9d7beba6a375c1ba5bbcc76c55cf8ef7
         }
     }
 }

@@ -55,7 +55,7 @@
             this.btnSales.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSales.ForeColor = System.Drawing.Color.Black;
             this.btnSales.Location = new System.Drawing.Point(416, 95);
-            this.btnSales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSales.Margin = new System.Windows.Forms.Padding(2);
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(136, 43);
             this.btnSales.TabIndex = 1;
@@ -69,12 +69,13 @@
             this.btnExpense.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExpense.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpense.Location = new System.Drawing.Point(416, 154);
-            this.btnExpense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExpense.Margin = new System.Windows.Forms.Padding(2);
             this.btnExpense.Name = "btnExpense";
             this.btnExpense.Size = new System.Drawing.Size(136, 39);
             this.btnExpense.TabIndex = 2;
             this.btnExpense.Text = "Expense ";
             this.btnExpense.UseVisualStyleBackColor = false;
+            this.btnExpense.Click += new System.EventHandler(this.btnExpense_Click);
             // 
             // btnProfit
             // 
@@ -82,12 +83,13 @@
             this.btnProfit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfit.Location = new System.Drawing.Point(416, 275);
-            this.btnProfit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProfit.Margin = new System.Windows.Forms.Padding(2);
             this.btnProfit.Name = "btnProfit";
             this.btnProfit.Size = new System.Drawing.Size(136, 39);
             this.btnProfit.TabIndex = 3;
             this.btnProfit.Text = "Profit Summary ";
             this.btnProfit.UseVisualStyleBackColor = false;
+            this.btnProfit.Click += new System.EventHandler(this.btnProfit_Click);
             // 
             // btnSlManagement
             // 
@@ -95,7 +97,7 @@
             this.btnSlManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSlManagement.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSlManagement.Location = new System.Drawing.Point(416, 213);
-            this.btnSlManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSlManagement.Margin = new System.Windows.Forms.Padding(2);
             this.btnSlManagement.Name = "btnSlManagement";
             this.btnSlManagement.Size = new System.Drawing.Size(136, 39);
             this.btnSlManagement.TabIndex = 4;
@@ -128,7 +130,7 @@
             this.Controls.Add(this.btnExpense);
             this.Controls.Add(this.btnSales);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AccountantDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AccountantDashboard";

@@ -43,11 +43,9 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
         public DataAccess()
         {
             this.sqlcon = new SqlConnection(
-<<<<<<< HEAD
-            @"Data Source=MAHMUDUL\SQLEXPRESS;Initial Catalog=RestaurantDB;Persist Security Info=True;User ID=sa;Password=mahmudul; ");
-=======
+ 
             @"Data Source=PINCACCI\SQLEXPRESS;Initial Catalog=RestaurantDB;Persist Security Info=True;User ID=sa;Password=dipu");
->>>>>>> 731f8650893d16d40ce68e5777e81258b6dbc946
+ 
             this.sqlcon.Open();
         }
 

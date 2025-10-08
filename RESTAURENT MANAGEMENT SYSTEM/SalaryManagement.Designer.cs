@@ -225,7 +225,7 @@
             this.btnBack.BackColor = System.Drawing.Color.Red;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(594, 16);
+            this.btnBack.Location = new System.Drawing.Point(555, 512);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(85, 31);
             this.btnBack.TabIndex = 15;
@@ -294,7 +294,7 @@
             this.label12.BackColor = System.Drawing.Color.Red;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(38, 498);
+            this.label12.Location = new System.Drawing.Point(38, 522);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(146, 21);
             this.label12.TabIndex = 22;
