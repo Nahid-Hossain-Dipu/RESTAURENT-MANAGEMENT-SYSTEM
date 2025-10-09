@@ -128,5 +128,10 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             ad.Show();
             this.Hide();
         }
+
+        private void txtTotalCost_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

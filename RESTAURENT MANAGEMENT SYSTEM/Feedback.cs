@@ -23,6 +23,25 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
 
             cmbRating.Items.AddRange(new object[] { 1, 2, 3, 4, 5 });
             cmbRating.SelectedIndex = 0;
+            LoadFeedbackData();
+        }
+        private void LoadFeedbackData()
+        {
+            try
+            {
+                string sql = "SELECT * FROM CustomerFeedback ORDER BY FeedbackDate DESC";
+                DataTable dt = da.ExecuteQueryTable(sql);
+                dataGridView1.DataSource = dt;
+
+                // Optional — makes grid look better
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.AllowUserToAddRows = false;
+                dataGridView1.ReadOnly = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading feedback: " + ex.Message);
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -62,6 +81,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
                 {
                     MessageBox.Show("Feedback saved successfully!");
                     ClearForm();
+                    LoadFeedbackData();
                 }
                 else
                 {
@@ -76,16 +96,7 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
 
         private void button2_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string sql = "SELECT * FROM CustomerFeedback ORDER BY FeedbackDate  DESC";
-                DataTable dt = da.ExecuteQueryTable(sql);
-                dataGridView1.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            LoadFeedbackData();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -101,21 +112,6 @@ namespace RESTAURENT_MANAGEMENT_SYSTEM
             txtFeedback.Clear();
 
             cmbRating.SelectedIndex = 0;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
+        }         
     }
 }

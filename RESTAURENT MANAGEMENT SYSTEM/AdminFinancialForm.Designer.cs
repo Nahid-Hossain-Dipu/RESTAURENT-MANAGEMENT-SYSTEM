@@ -69,42 +69,51 @@
             // lblStart
             // 
             this.lblStart.AutoSize = true;
-            this.lblStart.Location = new System.Drawing.Point(30, 25);
+            this.lblStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblStart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStart.ForeColor = System.Drawing.Color.White;
+            this.lblStart.Location = new System.Drawing.Point(29, 25);
             this.lblStart.Name = "lblStart";
-            this.lblStart.Size = new System.Drawing.Size(58, 13);
+            this.lblStart.Size = new System.Drawing.Size(84, 20);
             this.lblStart.TabIndex = 0;
             this.lblStart.Text = "Start Date:";
             // 
             // lblEnd
             // 
             this.lblEnd.AutoSize = true;
-            this.lblEnd.Location = new System.Drawing.Point(313, 24);
+            this.lblEnd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnd.ForeColor = System.Drawing.Color.White;
+            this.lblEnd.Location = new System.Drawing.Point(330, 25);
             this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Size = new System.Drawing.Size(55, 13);
+            this.lblEnd.Size = new System.Drawing.Size(76, 20);
             this.lblEnd.TabIndex = 1;
             this.lblEnd.Text = "End Date:";
             // 
             // dtpStart
             // 
-            this.dtpStart.Location = new System.Drawing.Point(94, 20);
+            this.dtpStart.Location = new System.Drawing.Point(127, 21);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(197, 20);
+            this.dtpStart.Size = new System.Drawing.Size(197, 22);
             this.dtpStart.TabIndex = 2;
             // 
             // dtpEnd
             // 
-            this.dtpEnd.Location = new System.Drawing.Point(374, 20);
+            this.dtpEnd.Location = new System.Drawing.Point(412, 22);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(204, 20);
+            this.dtpEnd.Size = new System.Drawing.Size(204, 22);
             this.dtpEnd.TabIndex = 3;
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(600, 17);
+            this.btnLoad.BackColor = System.Drawing.Color.White;
+            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLoad.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoad.Location = new System.Drawing.Point(646, 19);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(100, 28);
+            this.btnLoad.Size = new System.Drawing.Size(100, 29);
             this.btnLoad.TabIndex = 4;
             this.btnLoad.Text = "Load Data";
+            this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnBack
@@ -112,9 +121,9 @@
             this.btnBack.BackColor = System.Drawing.Color.Red;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(840, 17);
+            this.btnBack.Location = new System.Drawing.Point(900, 17);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(90, 28);
+            this.btnBack.Size = new System.Drawing.Size(90, 31);
             this.btnBack.TabIndex = 6;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -122,94 +131,121 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(720, 17);
+            this.btnPrint.BackColor = System.Drawing.Color.White;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(768, 20);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(100, 28);
             this.btnPrint.TabIndex = 5;
             this.btnPrint.Text = "Print Report";
+            this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // dgvRevenue
             // 
             this.dgvRevenue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRevenue.ColumnHeadersHeight = 29;
             this.dgvRevenue.Location = new System.Drawing.Point(30, 85);
             this.dgvRevenue.Name = "dgvRevenue";
             this.dgvRevenue.ReadOnly = true;
+            this.dgvRevenue.RowHeadersWidth = 51;
             this.dgvRevenue.Size = new System.Drawing.Size(900, 160);
             this.dgvRevenue.TabIndex = 10;
             // 
             // dgvSalaries
             // 
             this.dgvSalaries.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSalaries.ColumnHeadersHeight = 29;
             this.dgvSalaries.Location = new System.Drawing.Point(30, 285);
             this.dgvSalaries.Name = "dgvSalaries";
             this.dgvSalaries.ReadOnly = true;
+            this.dgvSalaries.RowHeadersWidth = 51;
             this.dgvSalaries.Size = new System.Drawing.Size(900, 160);
             this.dgvSalaries.TabIndex = 11;
             // 
             // dgvMaterials
             // 
             this.dgvMaterials.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvMaterials.ColumnHeadersHeight = 29;
             this.dgvMaterials.Location = new System.Drawing.Point(30, 485);
             this.dgvMaterials.Name = "dgvMaterials";
             this.dgvMaterials.ReadOnly = true;
+            this.dgvMaterials.RowHeadersWidth = 51;
             this.dgvMaterials.Size = new System.Drawing.Size(900, 160);
             this.dgvMaterials.TabIndex = 12;
             // 
             // lblRevenue
             // 
             this.lblRevenue.AutoSize = true;
-            this.lblRevenue.Location = new System.Drawing.Point(30, 65);
+            this.lblRevenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblRevenue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRevenue.ForeColor = System.Drawing.Color.White;
+            this.lblRevenue.Location = new System.Drawing.Point(29, 62);
             this.lblRevenue.Name = "lblRevenue";
-            this.lblRevenue.Size = new System.Drawing.Size(94, 13);
+            this.lblRevenue.Size = new System.Drawing.Size(136, 20);
             this.lblRevenue.TabIndex = 7;
             this.lblRevenue.Text = "Revenue (Orders):";
             // 
             // lblSalaries
             // 
             this.lblSalaries.AutoSize = true;
-            this.lblSalaries.Location = new System.Drawing.Point(30, 265);
+            this.lblSalaries.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalaries.ForeColor = System.Drawing.Color.White;
+            this.lblSalaries.Location = new System.Drawing.Point(26, 262);
             this.lblSalaries.Name = "lblSalaries";
-            this.lblSalaries.Size = new System.Drawing.Size(71, 13);
+            this.lblSalaries.Size = new System.Drawing.Size(100, 20);
             this.lblSalaries.TabIndex = 8;
             this.lblSalaries.Text = "Paid Salaries:";
             // 
             // lblMaterials
             // 
             this.lblMaterials.AutoSize = true;
-            this.lblMaterials.Location = new System.Drawing.Point(30, 465);
+            this.lblMaterials.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaterials.ForeColor = System.Drawing.Color.White;
+            this.lblMaterials.Location = new System.Drawing.Point(29, 462);
             this.lblMaterials.Name = "lblMaterials";
-            this.lblMaterials.Size = new System.Drawing.Size(125, 13);
+            this.lblMaterials.Size = new System.Drawing.Size(179, 20);
             this.lblMaterials.TabIndex = 9;
             this.lblMaterials.Text = "Raw Material Purchases:";
             // 
             // lblTotalRevenue
             // 
-            this.lblTotalRevenue.Location = new System.Drawing.Point(30, 660);
+            this.lblTotalRevenue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalRevenue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRevenue.ForeColor = System.Drawing.Color.White;
+            this.lblTotalRevenue.Location = new System.Drawing.Point(26, 656);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
-            this.lblTotalRevenue.Size = new System.Drawing.Size(100, 23);
+            this.lblTotalRevenue.Size = new System.Drawing.Size(135, 23);
             this.lblTotalRevenue.TabIndex = 13;
             this.lblTotalRevenue.Text = "Total Revenue:";
             // 
             // lblTotalSalaries
             // 
-            this.lblTotalSalaries.Location = new System.Drawing.Point(250, 660);
+            this.lblTotalSalaries.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSalaries.ForeColor = System.Drawing.Color.White;
+            this.lblTotalSalaries.Location = new System.Drawing.Point(260, 657);
             this.lblTotalSalaries.Name = "lblTotalSalaries";
-            this.lblTotalSalaries.Size = new System.Drawing.Size(100, 23);
+            this.lblTotalSalaries.Size = new System.Drawing.Size(112, 23);
             this.lblTotalSalaries.TabIndex = 15;
             this.lblTotalSalaries.Text = "Total Salaries:";
             // 
             // lblTotalCost
             // 
-            this.lblTotalCost.Location = new System.Drawing.Point(470, 660);
+            this.lblTotalCost.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCost.ForeColor = System.Drawing.Color.White;
+            this.lblTotalCost.Location = new System.Drawing.Point(484, 656);
             this.lblTotalCost.Name = "lblTotalCost";
-            this.lblTotalCost.Size = new System.Drawing.Size(100, 23);
+            this.lblTotalCost.Size = new System.Drawing.Size(132, 23);
             this.lblTotalCost.TabIndex = 17;
             this.lblTotalCost.Text = "Total Material Cost:";
             // 
             // lblTotalProfit
             // 
-            this.lblTotalProfit.Location = new System.Drawing.Point(720, 660);
+            this.lblTotalProfit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTotalProfit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProfit.ForeColor = System.Drawing.Color.White;
+            this.lblTotalProfit.Location = new System.Drawing.Point(733, 657);
             this.lblTotalProfit.Name = "lblTotalProfit";
             this.lblTotalProfit.Size = new System.Drawing.Size(100, 23);
             this.lblTotalProfit.TabIndex = 19;
@@ -217,39 +253,41 @@
             // 
             // txtTotalRevenue
             // 
-            this.txtTotalRevenue.Location = new System.Drawing.Point(130, 657);
+            this.txtTotalRevenue.Location = new System.Drawing.Point(144, 656);
             this.txtTotalRevenue.Name = "txtTotalRevenue";
             this.txtTotalRevenue.ReadOnly = true;
-            this.txtTotalRevenue.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalRevenue.Size = new System.Drawing.Size(100, 22);
             this.txtTotalRevenue.TabIndex = 14;
             // 
             // txtTotalSalaries
             // 
-            this.txtTotalSalaries.Location = new System.Drawing.Point(350, 657);
+            this.txtTotalSalaries.Location = new System.Drawing.Point(369, 656);
             this.txtTotalSalaries.Name = "txtTotalSalaries";
             this.txtTotalSalaries.ReadOnly = true;
-            this.txtTotalSalaries.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalSalaries.Size = new System.Drawing.Size(100, 22);
             this.txtTotalSalaries.TabIndex = 16;
             // 
             // txtTotalCost
             // 
-            this.txtTotalCost.Location = new System.Drawing.Point(600, 657);
+            this.txtTotalCost.Location = new System.Drawing.Point(622, 654);
             this.txtTotalCost.Name = "txtTotalCost";
             this.txtTotalCost.ReadOnly = true;
-            this.txtTotalCost.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalCost.Size = new System.Drawing.Size(100, 22);
             this.txtTotalCost.TabIndex = 18;
+            this.txtTotalCost.TextChanged += new System.EventHandler(this.txtTotalCost_TextChanged);
             // 
             // txtTotalProfit
             // 
-            this.txtTotalProfit.Location = new System.Drawing.Point(826, 657);
+            this.txtTotalProfit.Location = new System.Drawing.Point(829, 656);
             this.txtTotalProfit.Name = "txtTotalProfit";
             this.txtTotalProfit.ReadOnly = true;
-            this.txtTotalProfit.Size = new System.Drawing.Size(132, 20);
+            this.txtTotalProfit.Size = new System.Drawing.Size(132, 22);
             this.txtTotalProfit.TabIndex = 20;
             // 
             // AdminFinancialForm
             // 
-            this.ClientSize = new System.Drawing.Size(970, 710);
+            this.BackColor = System.Drawing.Color.Teal;
+            this.ClientSize = new System.Drawing.Size(1017, 710);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblEnd);
             this.Controls.Add(this.dtpStart);

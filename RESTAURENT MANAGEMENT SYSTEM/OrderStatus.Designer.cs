@@ -53,10 +53,11 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.BackColor = System.Drawing.Color.Red;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(57, 402);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(615, 402);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(133, 40);
             this.btnBack.TabIndex = 1;
@@ -69,7 +70,7 @@
             this.btnRefresh.BackColor = System.Drawing.Color.White;
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(335, 402);
+            this.btnRefresh.Location = new System.Drawing.Point(35, 402);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(149, 39);
             this.btnRefresh.TabIndex = 2;
@@ -82,7 +83,7 @@
             this.btnServed.BackColor = System.Drawing.Color.White;
             this.btnServed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServed.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServed.Location = new System.Drawing.Point(607, 402);
+            this.btnServed.Location = new System.Drawing.Point(332, 401);
             this.btnServed.Name = "btnServed";
             this.btnServed.Size = new System.Drawing.Size(128, 40);
             this.btnServed.TabIndex = 3;

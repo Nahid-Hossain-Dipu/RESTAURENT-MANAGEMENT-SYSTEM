@@ -43,43 +43,44 @@
             this.dgvMenuItems.Location = new System.Drawing.Point(8, 24);
             this.dgvMenuItems.Name = "dgvMenuItems";
             this.dgvMenuItems.ReadOnly = true;
+            this.dgvMenuItems.RowHeadersWidth = 51;
             this.dgvMenuItems.Size = new System.Drawing.Size(520, 404);
             this.dgvMenuItems.TabIndex = 0;
             this.dgvMenuItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenuItems_CellClick);
-           
             // 
             // txtSelectedItem
             // 
             this.txtSelectedItem.Location = new System.Drawing.Point(947, 23);
             this.txtSelectedItem.Name = "txtSelectedItem";
             this.txtSelectedItem.ReadOnly = true;
-            this.txtSelectedItem.Size = new System.Drawing.Size(100, 20);
+            this.txtSelectedItem.Size = new System.Drawing.Size(100, 22);
             this.txtSelectedItem.TabIndex = 1;
-            
             // 
             // txtTableNumber
             // 
             this.txtTableNumber.Location = new System.Drawing.Point(947, 80);
             this.txtTableNumber.Name = "txtTableNumber";
-            this.txtTableNumber.Size = new System.Drawing.Size(100, 20);
+            this.txtTableNumber.Size = new System.Drawing.Size(100, 22);
             this.txtTableNumber.TabIndex = 2;
             // 
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(947, 132);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(100, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(100, 22);
             this.txtQuantity.TabIndex = 3;
             // 
             // btnAddOrder
             // 
-            this.btnAddOrder.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.btnAddOrder.BackColor = System.Drawing.Color.White;
+            this.btnAddOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddOrder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddOrder.Location = new System.Drawing.Point(949, 178);
             this.btnAddOrder.Name = "btnAddOrder";
             this.btnAddOrder.Size = new System.Drawing.Size(98, 44);
             this.btnAddOrder.TabIndex = 4;
             this.btnAddOrder.Text = "Add";
-            this.btnAddOrder.UseVisualStyleBackColor = true;
+            this.btnAddOrder.UseVisualStyleBackColor = false;
             this.btnAddOrder.Click += new System.EventHandler(this.btnAddOrder_Click);
             // 
             // dgvOrders
@@ -89,106 +90,127 @@
             this.dgvOrders.Location = new System.Drawing.Point(8, 437);
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.ReadOnly = true;
+            this.dgvOrders.RowHeadersWidth = 51;
             this.dgvOrders.Size = new System.Drawing.Size(1049, 194);
             this.dgvOrders.TabIndex = 5;
             // 
             // lblSelectedItem
             // 
             this.lblSelectedItem.AutoSize = true;
-            this.lblSelectedItem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.lblSelectedItem.Location = new System.Drawing.Point(830, 24);
+            this.lblSelectedItem.BackColor = System.Drawing.Color.Teal;
+            this.lblSelectedItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSelectedItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSelectedItem.ForeColor = System.Drawing.Color.White;
+            this.lblSelectedItem.Location = new System.Drawing.Point(805, 23);
             this.lblSelectedItem.Name = "lblSelectedItem";
-            this.lblSelectedItem.Size = new System.Drawing.Size(101, 19);
+            this.lblSelectedItem.Size = new System.Drawing.Size(141, 28);
             this.lblSelectedItem.TabIndex = 16;
             this.lblSelectedItem.Text = "Selected Item";
             // 
             // lblTableNo
             // 
             this.lblTableNo.AutoSize = true;
-            this.lblTableNo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTableNo.BackColor = System.Drawing.Color.Teal;
+            this.lblTableNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTableNo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTableNo.ForeColor = System.Drawing.Color.White;
             this.lblTableNo.Location = new System.Drawing.Point(830, 81);
             this.lblTableNo.Name = "lblTableNo";
-            this.lblTableNo.Size = new System.Drawing.Size(74, 19);
+            this.lblTableNo.Size = new System.Drawing.Size(101, 28);
             this.lblTableNo.TabIndex = 15;
             this.lblTableNo.Text = "Table No.";
             // 
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.ForeColor = System.Drawing.Color.White;
             this.lblQuantity.Location = new System.Drawing.Point(830, 133);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(67, 19);
+            this.lblQuantity.Size = new System.Drawing.Size(95, 28);
             this.lblQuantity.TabIndex = 14;
             this.lblQuantity.Text = "Quantity";
             // 
             // btnDeleteOrder
             // 
-            this.btnDeleteOrder.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteOrder.BackColor = System.Drawing.Color.White;
+            this.btnDeleteOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteOrder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteOrder.Location = new System.Drawing.Point(829, 178);
             this.btnDeleteOrder.Name = "btnDeleteOrder";
             this.btnDeleteOrder.Size = new System.Drawing.Size(102, 44);
             this.btnDeleteOrder.TabIndex = 9;
             this.btnDeleteOrder.Text = "Delete";
-            this.btnDeleteOrder.UseVisualStyleBackColor = true;
+            this.btnDeleteOrder.UseVisualStyleBackColor = false;
             this.btnDeleteOrder.Click += new System.EventHandler(this.btnDeleteOrder_Click);
             // 
             // lblTotalAmount
             // 
             this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalAmount.Location = new System.Drawing.Point(823, 589);
+            this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(821, 572);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(82, 31);
+            this.lblTotalAmount.Size = new System.Drawing.Size(108, 46);
             this.lblTotalAmount.TabIndex = 13;
             this.lblTotalAmount.Text = "Total ";
+//            this.lblTotalAmount.Click += new System.EventHandler(this.lblTotalAmount_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.btnClear.BackColor = System.Drawing.Color.White;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(708, 178);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(105, 44);
             this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnConfirmOrder
             // 
-            this.btnConfirmOrder.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.btnConfirmOrder.BackColor = System.Drawing.Color.White;
+            this.btnConfirmOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmOrder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmOrder.Location = new System.Drawing.Point(579, 178);
             this.btnConfirmOrder.Name = "btnConfirmOrder";
             this.btnConfirmOrder.Size = new System.Drawing.Size(115, 44);
             this.btnConfirmOrder.TabIndex = 12;
             this.btnConfirmOrder.Text = "Confirm";
-            this.btnConfirmOrder.UseVisualStyleBackColor = true;
+            this.btnConfirmOrder.UseVisualStyleBackColor = false;
             this.btnConfirmOrder.Click += new System.EventHandler(this.btnConfirmOrder_Click);
             // 
             // btnUpdateOrder
             // 
-            this.btnUpdateOrder.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.btnUpdateOrder.BackColor = System.Drawing.Color.White;
+            this.btnUpdateOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateOrder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateOrder.Location = new System.Drawing.Point(579, 240);
             this.btnUpdateOrder.Name = "btnUpdateOrder";
-            this.btnUpdateOrder.Size = new System.Drawing.Size(230, 44);
+            this.btnUpdateOrder.Size = new System.Drawing.Size(192, 44);
             this.btnUpdateOrder.TabIndex = 17;
             this.btnUpdateOrder.Text = "Update Order";
-            this.btnUpdateOrder.UseVisualStyleBackColor = true;
-            this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
+            this.btnUpdateOrder.UseVisualStyleBackColor = false;
+            //this.btnUpdateOrder.Click += new System.EventHandler(this.btnUpdateOrder_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(579, 24);
+            this.btnBack.BackColor = System.Drawing.Color.Red;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBack.Location = new System.Drawing.Point(579, 33);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(102, 44);
+            this.btnBack.Size = new System.Drawing.Size(133, 50);
             this.btnBack.TabIndex = 18;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // StaffDashboard
             // 
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1069, 643);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdateOrder);

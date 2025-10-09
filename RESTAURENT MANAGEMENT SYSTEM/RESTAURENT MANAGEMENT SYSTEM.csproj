@@ -187,6 +187,9 @@
     <EmbeddedResource Include="ChefDashboard.resx">
       <DependentUpon>ChefDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExpensesForm.resx">
+      <DependentUpon>ExpensesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Feedback.resx">
       <DependentUpon>Feedback.cs</DependentUpon>
     </EmbeddedResource>
